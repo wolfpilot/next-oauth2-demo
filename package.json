@@ -9,21 +9,26 @@
     "lint": "next lint",
     "prepare": "husky",
     "format": "prettier src/**/*.ts --write",
-    "validate": "tsc --noEmit"
+    "validate": "tsc --noEmit",
+    "db:generate-types": "kysely-codegen --dialect postgres --camel-case --out-file ./database/schema.d.ts"
   },
   "dependencies": {
+    "kysely": "^0.27.4",
     "next": "15.0.2",
     "next-auth": "5.0.0-beta.25",
+    "pg": "^8.13.1",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/pg": "^8.11.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "15.0.2",
     "husky": "^9.1.6",
+    "kysely-codegen": "^0.17.0",
     "prettier": "^3.3.3",
     "typescript": "^5"
   }
