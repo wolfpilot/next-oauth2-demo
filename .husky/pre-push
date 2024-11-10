@@ -1,1 +1,1 @@
-pnpm run test:coverage
+pnpm run test-unit:coverage && pnpm run test-e2e
