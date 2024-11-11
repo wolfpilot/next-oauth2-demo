@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+/blob-report/
+/test-results/
+/playwright-report/
+/playwright/.cache/
 
 # next.js
 /.next/
@@ -19,6 +23,10 @@
 
 # production
 /build
+
+# docker
+/pgadmin
+/postgres
 
 # misc
 .DS_Store
@@ -30,7 +38,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # env files (can opt-in for commiting if needed)
-.env*
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel

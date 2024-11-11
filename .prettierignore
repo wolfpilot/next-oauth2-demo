@@ -1,5 +1,6 @@
 # Ignore artifacts:
 *.log
+*.yml
 .next
 .husky
 node_modules
