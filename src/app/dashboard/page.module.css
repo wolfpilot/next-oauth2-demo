@@ -1,0 +1,16 @@
+.wrapper {
+  width: 100%;
+  padding: var(--spacing-large);
+  text-align: center;
+  background-color: var(--c-content-bg);
+  border-radius: var(--border-radius-default);
+}
+
+.heading {
+  margin-bottom: var(--spacing-default);
+}
+
+.avatar {
+  margin-bottom: var(--spacing-default);
+  border-radius: 50%;
+}
