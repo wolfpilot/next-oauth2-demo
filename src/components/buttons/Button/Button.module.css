@@ -1,0 +1,7 @@
+.wrapperPrimary {
+  composes: wrapperPrimary from "@styles/cta.css";
+}
+
+.wrapperSecondary {
+  composes: wrapperSecondary from "@styles/cta.css";
+}

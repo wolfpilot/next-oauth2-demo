@@ -7,6 +7,10 @@ import Image from "next/image"
 // Styles
 import styles from "./page.module.css"
 
+// Components
+import Container from "@components/layout/Container/Container"
+import { Button } from "@components/buttons"
+
 const DashboardPage = () => {
   const session = useSession()
 
@@ -17,27 +21,30 @@ const DashboardPage = () => {
   const { name, email, image } = session.data.user
 
   return (
-    <div className={styles.wrapper}>
-      <header>
-        <h1 className={styles.heading}>Welcome back!</h1>
-      </header>
+    <Container>
+      <div className={styles.wrapper}>
+        <header>
+          <h1 className={styles.heading}>Welcome back!</h1>
+        </header>
 
-      {image && (
-        <Image
-          className={styles.avatar}
-          src={image}
-          alt={`${name}'s profile photo.`}
-          width={128}
-          height={128}
-        />
-      )}
+        <div className={styles.user}>
+          {image && (
+            <Image
+              className={styles.avatar}
+              src={image}
+              alt={`${name}'s profile photo.`}
+              width={128}
+              height={128}
+            />
+          )}
 
-      <div>
-        {name && <h2>{name}</h2>}
-        <p>{email}</p>
-        <button onClick={() => signOut()}>Sign out</button>
+          {name && <h2>{name}</h2>}
+          <p>{email}</p>
+        </div>
+
+        <Button onClick={() => signOut()}>Sign out</Button>
       </div>
-    </div>
+    </Container>
   )
 }
 

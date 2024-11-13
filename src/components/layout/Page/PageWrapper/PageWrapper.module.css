@@ -7,5 +7,6 @@
 }
 
 .content {
-  width: var(--max-content-width);
+  width: 100%;
+  padding: var(--spacing-large);
 }

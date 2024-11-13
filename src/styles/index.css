@@ -2,7 +2,9 @@
 @import "sanitize.css";
 
 /* Variables */
+@import "./variables/colors.css";
 @import "./variables/layout.css";
 
 /* Global */
 @import "./base.css";
+@import "./cta.css";
