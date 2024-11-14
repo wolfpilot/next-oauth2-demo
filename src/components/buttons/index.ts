@@ -1,3 +1,4 @@
 import Button from "./Button/Button"
+import SsoLoginButton from "./SsoLoginButton/SsoLoginButton"
 
-export { Button }
+export { Button, SsoLoginButton }

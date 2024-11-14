@@ -1,7 +1,6 @@
 .wrapper {
   --btn-height: 48px;
 
-  display: block;
   width: 100%;
   height: var(--btn-height);
   border-radius: calc(var(--btn-height) / 2);

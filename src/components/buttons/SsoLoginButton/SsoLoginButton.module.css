@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* Fake element to help with centering */
+  &::after {
+    content: "";
+    /* Offset by the same width as the left-side element */
+    width: 40px;
+  }
+}
+
+.image {
+  margin-left: var(--spacing-small);
+}

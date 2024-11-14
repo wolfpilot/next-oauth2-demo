@@ -20,6 +20,9 @@ const config: NextAuthConfig = {
   // @ts-expect-error See above
   adapter: KyselyAdapter(db),
   providers: [GitHub],
+  pages: {
+    signIn: "/sign-in",
+  },
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth(config)

@@ -1,3 +1,5 @@
+"use client"
+
 // Types
 import { Props } from "./types"
 
@@ -7,15 +9,14 @@ import styles from "./Button.module.css"
 
 const Button = ({
   children,
-  className,
+  className = "",
   variant = "primary",
   ...rest
 }: Props) => (
   <button
     className={`
-      ${styles.wrapper}
-      ${className}
       ${variant === "primary" ? styles.wrapperPrimary : styles.wrapperSecondary}
+      ${className}
     `}
     {...rest}
   >
