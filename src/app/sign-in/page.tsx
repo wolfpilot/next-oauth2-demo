@@ -1,5 +1,8 @@
 import { redirect } from "next/navigation"
 
+// Constants
+import { clientRoutes } from "@constants/clientRoutes.constants"
+
 // Lib
 import { auth } from "@lib/auth.lib"
 
@@ -14,7 +17,7 @@ const SignInPage = async () => {
   const session = await auth()
 
   if (session) {
-    redirect("/dashboard")
+    redirect(clientRoutes.dashboard.url)
   }
 
   return (

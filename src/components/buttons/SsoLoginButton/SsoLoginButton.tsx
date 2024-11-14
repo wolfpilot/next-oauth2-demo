@@ -3,24 +3,21 @@
 import Image from "next/image"
 
 // Types
-import { ValidOAuthProviders, ProviderNames } from "@ts/auth.types"
+import { ProviderNames } from "@ts/auth.types"
 import { Props } from "./types"
+
+// Config
+import { SSO_PROVIDERS } from "@config/auth.config"
 
 // Utils
 import { signinWithProvider } from "@utils/actions/auth.actions"
+import { isValidProvider } from "@utils/typeguards/auth.typeguards"
 
 // Styles
 import styles from "./SsoLoginButton.module.css"
 
 // Components
 import { Button } from "@components/buttons"
-
-// Setup
-const PROVIDERS = ["github", "google", "twitter"]
-
-// Typeguards
-const isValidProvider = (val: string): val is ValidOAuthProviders =>
-  PROVIDERS.includes(val)
 
 const SsoLoginButton = ({ provider }: Props) => {
   if (!isValidProvider(provider)) {

@@ -4,6 +4,9 @@ import { redirect } from "next/navigation"
 import { useSession, signOut } from "next-auth/react"
 import Image from "next/image"
 
+// Constants
+import { apiRoutes } from "@constants/apiRoutes.constants"
+
 // Styles
 import styles from "./page.module.css"
 
@@ -15,7 +18,7 @@ const DashboardPage = () => {
   const session = useSession()
 
   if (!session?.data?.user) {
-    redirect("/api/auth/signin")
+    redirect(apiRoutes.signIn.url)
   }
 
   const { name, email, image } = session.data.user

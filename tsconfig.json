@@ -23,6 +23,7 @@
       "@app/*": ["./src/app/*"],
       "@api/*": ["./src/app/api/*"],
       "@components/*": ["./src/components/*"],
+      "@config/*": ["./src/config/*"],
       "@constants/*": ["./src/constants/*"],
       "@lib/*": ["./src/lib/*"],
       "@middleware/*": ["./src/middleware/*"],
