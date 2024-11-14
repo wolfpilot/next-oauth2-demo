@@ -24,8 +24,9 @@ const SignInPage = async () => {
           <h1 className={styles.heading}>Sign in</h1>
         </header>
 
-        <div>
+        <div className={styles.ssoLoginWrapper}>
           <SsoLoginButton provider="github" />
+          <SsoLoginButton provider="google" />
         </div>
       </div>
     </Container>

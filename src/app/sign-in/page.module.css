@@ -9,3 +9,9 @@
 .heading {
   margin-bottom: var(--spacing-default);
 }
+
+.ssoLoginWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-small);
+}
