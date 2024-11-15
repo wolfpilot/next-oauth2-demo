@@ -1,0 +1,8 @@
+.user {
+  margin-bottom: var(--spacing-default);
+}
+
+.avatar {
+  margin-bottom: var(--spacing-default);
+  border-radius: 50%;
+}

@@ -1,0 +1,31 @@
+.wrapper {
+  --btn-height: 48px;
+
+  width: 100%;
+  height: var(--btn-height);
+  border-radius: calc(var(--btn-height) / 2);
+  font-size: 16px;
+}
+
+.wrapperPrimary {
+  composes: wrapper;
+  background-color: var(--c-accent-primary);
+  outline: none;
+  border: none;
+
+  &:focus-within,
+  &:hover {
+    background-color: var(--c-accent-primary-80);
+  }
+}
+
+.wrapperSecondary {
+  composes: wrapper;
+  background-color: transparent;
+  border: 1px solid var(--c-lGrey);
+
+  &:focus-within,
+  &:hover {
+    outline: 1px solid var(--c-lGrey);
+  }
+}

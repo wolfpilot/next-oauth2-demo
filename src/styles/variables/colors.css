@@ -1,0 +1,30 @@
+:root {
+  /* Colours */
+  --c-pure-white: hsl(0, 0%, 100%);
+  --c-pure-black: hsl(0, 0%, 0%);
+
+  --c-white: hsl(0, 0%, 96%);
+  --c-lGrey: hsl(0, 0%, 91.5%);
+  --c-grey: hsl(240, 3%, 39%);
+  --c-dGrey: hsl(0, 0%, 15%);
+  --c-black: hsl(0, 0%, 11%);
+
+  --c-accent-primary: hsl(248, 73%, 57%);
+  --c-accent-primary-80: hsla(248, 73%, 57%, 80%);
+
+  /* Theming */
+  --c-page-bg: var(--c-lGrey);
+  --c-content-bg: var(--c-white);
+
+  --c-text: var(--c-black);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Theming */
+    --c-page-bg: var(--c-black);
+    --c-content-bg: var(--c-dGrey);
+
+    --c-text: var(--c-white);
+  }
+}
