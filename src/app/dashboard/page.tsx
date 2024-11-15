@@ -13,7 +13,7 @@ import styles from "./page.module.css"
 // Components
 import Container from "@components/layout/Container/Container"
 import { ContentBlock } from "@components/layout/Content"
-import { Button } from "@components/buttons"
+import { LogoutButton } from "@components/buttons"
 
 const DashboardPage = () => {
   const session = useSession()
@@ -39,14 +39,15 @@ const DashboardPage = () => {
               alt={`${name}'s profile photo.`}
               width={128}
               height={128}
+              data-testid="avatar"
             />
           )}
 
-          {name && <h2>{name}</h2>}
-          <p>{email}</p>
+          {name && <h2 data-testid="name">{name}</h2>}
+          <p data-testid="email">{email}</p>
         </div>
 
-        <Button onClick={() => signOut()}>Sign out</Button>
+        <LogoutButton />
       </ContentBlock>
     </Container>
   )
