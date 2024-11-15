@@ -28,3 +28,8 @@ jobs:
         run: |
           npx playwright install --with-deps chromium
           npx playwright test --project chromium
+        env:
+          CLIENT_URL: ${{ secrets.CLIENT_URL }}
+          TEST_GITHUB_USER: ${{ secrets.TEST_GITHUB_USER }}
+          TEST_GITHUB_PASSWORD: ${{ secrets.TEST_GITHUB_PASSWORD }}
+          TEST_GITHUB_2FA_SECRET: ${{ secrets.TEST_GITHUB_2FA_SECRET }}
