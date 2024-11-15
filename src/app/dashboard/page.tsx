@@ -12,6 +12,7 @@ import styles from "./page.module.css"
 
 // Components
 import Container from "@components/layout/Container/Container"
+import { ContentBlock } from "@components/layout/Content"
 import { Button } from "@components/buttons"
 
 const DashboardPage = () => {
@@ -25,9 +26,9 @@ const DashboardPage = () => {
 
   return (
     <Container>
-      <div className={styles.wrapper}>
+      <ContentBlock>
         <header>
-          <h1 className={styles.heading}>Welcome back!</h1>
+          <h1>Welcome back!</h1>
         </header>
 
         <div className={styles.user}>
@@ -46,7 +47,7 @@ const DashboardPage = () => {
         </div>
 
         <Button onClick={() => signOut()}>Sign out</Button>
-      </div>
+      </ContentBlock>
     </Container>
   )
 }

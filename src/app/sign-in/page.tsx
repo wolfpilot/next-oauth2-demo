@@ -11,6 +11,7 @@ import styles from "./page.module.css"
 
 // Components
 import Container from "@components/layout/Container/Container"
+import { ContentBlock } from "@components/layout/Content"
 import SsoLoginButton from "@components/buttons/SsoLoginButton/SsoLoginButton"
 
 const SignInPage = async () => {
@@ -22,16 +23,16 @@ const SignInPage = async () => {
 
   return (
     <Container>
-      <div className={styles.wrapper}>
+      <ContentBlock>
         <header>
-          <h1 className={styles.heading}>Sign in</h1>
+          <h1>Sign in</h1>
         </header>
 
         <div className={styles.ssoLoginWrapper}>
           <SsoLoginButton provider="github" />
           <SsoLoginButton provider="google" />
         </div>
-      </div>
+      </ContentBlock>
     </Container>
   )
 }
