@@ -3,6 +3,9 @@ import GitHub from "next-auth/providers/github"
 import Google from "next-auth/providers/google"
 import { KyselyAdapter } from "@auth/kysely-adapter"
 
+// Constants
+import { clientRoutes } from "@constants/clientRoutes.constants"
+
 // Lib
 import { db } from "@lib/database.lib"
 
@@ -22,8 +25,10 @@ const config: NextAuthConfig = {
   adapter: KyselyAdapter(db),
   providers: [GitHub, Google],
   pages: {
-    signIn: "/sign-in",
+    signIn: clientRoutes.signIn.url,
+    signOut: clientRoutes.dashboard.url,
   },
+  debug: true,
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth(config)

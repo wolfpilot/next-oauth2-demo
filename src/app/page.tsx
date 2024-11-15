@@ -21,7 +21,7 @@ const HomePage = async () => {
         </header>
 
         {session?.user ? (
-          <button>Sign out</button>
+          <Link href={clientRoutes.dashboard.url}>Go to Dashboard</Link>
         ) : (
           <Link href={clientRoutes.signIn.url}>Sign in</Link>
         )}

@@ -1,7 +1,7 @@
 "use client"
 
 import { redirect } from "next/navigation"
-import { useSession, signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import Image from "next/image"
 
 // Constants

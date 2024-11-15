@@ -8,7 +8,25 @@ on:
 
 jobs:
   test:
+    name: Playwright E2E Tests
+    environment: production
+    env:
+      CLIENT_URL: ${{ vars.CLIENT_URL }}
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: ${{ secrets.PG_DATABASE }}
+          POSTGRES_USER: ${{ secrets.PG_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.PG_PASSWORD }}
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 3
+        ports:
+          - 6543:5432
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,14 +40,22 @@ jobs:
           version: 9.1.4
       - name: Install dependencies
         run: pnpm install
+      - name: Up migrations
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: pnpm run db:migrate
       - name: Run Vitest unit tests
         run: pnpm run test-unit
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
       - name: Run Playwright E2E tests
-        run: |
-          npx playwright install --with-deps chromium
-          npx playwright test --project chromium
         env:
-          CLIENT_URL: ${{ secrets.CLIENT_URL }}
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }}
+          AUTH_GITHUB_ID: ${{ secrets.AUTH_GITHUB_ID }}
+          AUTH_GITHUB_SECRET: ${{ secrets.AUTH_GITHUB_SECRET }}
+          AUTH_GOOGLE_ID: ${{ secrets.AUTH_GOOGLE_ID }}
+          AUTH_GOOGLE_SECRET: ${{ secrets.AUTH_GOOGLE_SECRET }}
           TEST_GITHUB_USER: ${{ secrets.TEST_GITHUB_USER }}
           TEST_GITHUB_PASSWORD: ${{ secrets.TEST_GITHUB_PASSWORD }}
           TEST_GITHUB_2FA_SECRET: ${{ secrets.TEST_GITHUB_2FA_SECRET }}
+        run: npx playwright test --project chromium

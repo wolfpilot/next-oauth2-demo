@@ -7,9 +7,13 @@ import { defineConfig, devices } from "@playwright/test"
 import dotenvFlow from "dotenv-flow"
 
 // Setup
-const { NODE_ENV } = process.env
+const { CI } = process.env
 
-if (NODE_ENV === "test") {
+/**
+ * Skip setting .env vars during CI since it's done in the pipeline itself
+ * such as using Github Actions vars and secrets.
+ */
+if (!CI) {
   dotenvFlow.config()
 }
 
