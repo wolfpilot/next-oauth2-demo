@@ -12,6 +12,7 @@ jobs:
     environment: production
     env:
       CLIENT_URL: ${{ vars.CLIENT_URL }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -41,8 +42,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Up migrations
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: pnpm run db:migrate
       - name: Run Vitest unit tests
         run: pnpm run test-unit

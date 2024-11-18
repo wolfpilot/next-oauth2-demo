@@ -28,7 +28,7 @@ const config: NextAuthConfig = {
     signIn: clientRoutes.signIn.url,
     signOut: clientRoutes.dashboard.url,
   },
-  debug: true,
+  // debug: true,
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth(config)
