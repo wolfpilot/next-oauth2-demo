@@ -6,9 +6,6 @@ import Image from "next/image"
 import { ProviderNames } from "@ts/auth.types"
 import { Props } from "./types"
 
-// Config
-import { SSO_PROVIDERS } from "@config/auth.config"
-
 // Utils
 import { signinWithProvider } from "@utils/actions/auth.actions"
 import { isValidProvider } from "@utils/typeguards/auth.typeguards"
