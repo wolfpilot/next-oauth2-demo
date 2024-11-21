@@ -1,3 +1,4 @@
+import { signup } from "./signup.actions"
 import { signinWithProvider } from "./signin.actions"
 
-export { signinWithProvider }
+export { signup, signinWithProvider }
