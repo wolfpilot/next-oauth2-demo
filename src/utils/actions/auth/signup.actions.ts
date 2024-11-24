@@ -72,7 +72,7 @@ export const signup = async (_formState: FormState, formData: FormData) => {
     }
 
     return {
-      errors: "Oops, something went wrong!",
+      errors: "Oops, something went wrong! Please try again later.",
     }
   }
 }
