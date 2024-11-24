@@ -10,6 +10,7 @@ import styles from "./SignupForm.module.css"
 
 // Components
 import { Button } from "@components/buttons"
+import { InputField } from "@components/forms/Fields"
 
 // Setup
 const INITIAL_STATE = {
@@ -28,48 +29,29 @@ const SignupForm = () => {
 
   return (
     <form className={styles.wrapper} action={formAction}>
-      <div>
-        <label htmlFor="name">
-          <span>Name</span>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="John Smith"
-            defaultValue={name}
-            required
-          />
-        </label>
-      </div>
+      <InputField
+        id="name"
+        name="name"
+        label="Name"
+        placeholder="John Smith"
+        defaultValue={name}
+      />
 
-      <div>
-        <label htmlFor="email">
-          <span>Email</span>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            placeholder="jsmith@example.com"
-            defaultValue={email}
-            required
-          />
-        </label>
-      </div>
+      <InputField
+        id="email"
+        name="email"
+        label="E-mail"
+        placeholder="jsmith@example.com"
+        defaultValue={email}
+      />
 
-      <div>
-        <label htmlFor="password">
-          <span>Password</span>
-          <input
-            type="text"
-            id="password"
-            name="password"
-            placeholder="********"
-            defaultValue={password}
-            required
-            autoComplete="off"
-          />
-        </label>
-      </div>
+      <InputField
+        id="password"
+        name="password"
+        label="Password"
+        placeholder="********"
+        defaultValue={password}
+      />
 
       <Button type="submit" variant="primary" disabled={pending}>
         {pending ? "Processing..." : "Continue"}
