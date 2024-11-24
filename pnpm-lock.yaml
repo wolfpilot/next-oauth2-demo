@@ -38,6 +38,9 @@ importers:
       sanitize.css:
         specifier: ^13.0.0
         version: 13.0.0
+      ts-custom-error:
+        specifier: ^3.3.1
+        version: 3.3.1
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -2744,6 +2747,10 @@ packages:
     engines: {node: '>=16'}
     peerDependencies:
       typescript: '>=4.2.0'
+
+  ts-custom-error@3.3.1:
+    resolution: {integrity: sha512-5OX1tzOjxWEgsr/YEUWSuPrQ00deKLh6D7OTWcvNHm12/7QPyRh8SYpyWvA4IZv8H/+GQWQEh/kwo95Q9OVW1A==}
+    engines: {node: '>=14.0.0'}
 
   tsconfck@3.1.4:
     resolution: {integrity: sha512-kdqWFGVJqe+KGYvlSO9NIaWn9jT1Ny4oKVzAJsKii5eoE9snzTJzL4+MMVOMn+fikWGFmKEylcXL710V/kIPJQ==}
@@ -5700,6 +5707,8 @@ snapshots:
   ts-api-utils@1.4.0(typescript@5.6.3):
     dependencies:
       typescript: 5.6.3
+
+  ts-custom-error@3.3.1: {}
 
   tsconfck@3.1.4(typescript@5.6.3):
     optionalDependencies:
