@@ -2,18 +2,30 @@
 
 import { useActionState } from "react"
 
+// Constants
+import {
+  FORM_STATUS_PENDING,
+  FORM_STATUS_READY,
+} from "@constants/form.constants"
+
 // Utils
 import { signup as signupAction } from "@utils/actions/auth"
+import { parseErrors } from "./helpers/error.helpers"
 
 // Styles
 import styles from "./SignupForm.module.css"
 
 // Components
+import { InputField, ErrorMessages } from "@components/forms"
 import { Button } from "@components/buttons"
-import { InputField } from "@components/forms/Fields"
 
 // Setup
 const INITIAL_STATE = {
+  data: {
+    name: "",
+    email: "",
+    password: "",
+  },
   errors: {
     formErrors: [],
     fieldErrors: {},
@@ -25,7 +37,9 @@ const SignupForm = () => {
     signupAction,
     INITIAL_STATE
   )
+
   const { name, email, password } = formState?.data || {}
+  const err = parseErrors(formState.errors)
 
   return (
     <form className={styles.wrapper} action={formAction}>
@@ -35,6 +49,8 @@ const SignupForm = () => {
         label="Name"
         placeholder="John Smith"
         defaultValue={name}
+        required
+        errors={err.fieldErrors?.name}
       />
 
       <InputField
@@ -43,6 +59,8 @@ const SignupForm = () => {
         label="E-mail"
         placeholder="jsmith@example.com"
         defaultValue={email}
+        required
+        errors={err.fieldErrors?.email}
       />
 
       <InputField
@@ -51,11 +69,16 @@ const SignupForm = () => {
         label="Password"
         placeholder="********"
         defaultValue={password}
+        required
+        autoComplete="off"
+        errors={err.fieldErrors?.password}
       />
 
       <Button type="submit" variant="primary" disabled={pending}>
-        {pending ? "Processing..." : "Continue"}
+        {pending ? FORM_STATUS_PENDING : FORM_STATUS_READY}
       </Button>
+
+      <ErrorMessages errors={err.formErrors} />
     </form>
   )
 }

@@ -1,7 +1,7 @@
 import * as z from "zod"
 
 // Types
-import type { ZodErrorFields } from "@ts/validation.types"
+import type { ValidationError } from "@ts/validation.types"
 
 export const signupSchema = z.object({
   name: z
@@ -20,7 +20,7 @@ export const signupSchema = z.object({
     .string({
       required_error: "Password is required.",
     })
-    .min(8, { message: "Password must be at least 8 characters long" })
+    .min(8, { message: "Password must be at least 8 characters long." })
     .regex(/[a-zA-Z]/, {
       message: "Password must contain at least one letter.",
     })
@@ -32,7 +32,7 @@ export const signupSchema = z.object({
 })
 
 export type SignupSchema = z.infer<typeof signupSchema>
-export type SignupSchemaError = z.inferFlattenedErrors<
+export type SignupSchemaErrors = z.inferFlattenedErrors<
   typeof signupSchema,
-  ZodErrorFields
+  ValidationError
 >

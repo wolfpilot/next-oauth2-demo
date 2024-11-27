@@ -5,9 +5,12 @@ import bcrypt from "bcryptjs"
 // Schemas
 import {
   type SignupSchema,
-  type SignupSchemaError,
+  type SignupSchemaErrors,
   signupSchema,
 } from "@schemas/signup.schemas"
+
+// Constants
+import { serviceErrors } from "@constants/errors.constants"
 
 // Lib
 import { db } from "@lib/database.lib"
@@ -17,7 +20,7 @@ import { parseZodErrors } from "@utils/helpers/form.helpers"
 
 export interface FormState {
   data?: SignupSchema
-  errors?: string | SignupSchemaError
+  errors?: SignupSchemaErrors
 }
 
 export const signup = async (_formState: FormState, formData: FormData) => {
@@ -27,11 +30,24 @@ export const signup = async (_formState: FormState, formData: FormData) => {
     password: formData.get("password") as string,
   }
 
+  /**
+   * Can't return custom Error instances because the React Server DOM,
+   * an experimental part of Next.JS, strips out all details from the instance
+   * aside from the .message property.
+   *
+   * And that's pretty useless because normally server messages may be too detailed
+   * to display directly to the customers. You would ideally have a code/cause based
+   * on which the FE then returns a more user-friendly message.
+   *
+   * So instead we'll just return an array of regular objects, flatten Zod errors to do
+   * the same and call it a day.
+   */
   const validated = signupSchema.safeParse(data)
 
   if (!validated.success) {
     return {
-      errors: parseZodErrors<SignupSchemaError>(validated.error),
+      data,
+      errors: parseZodErrors<SignupSchema>(validated.error),
     }
   }
 
@@ -44,7 +60,11 @@ export const signup = async (_formState: FormState, formData: FormData) => {
 
     if (userRecords.length) {
       return {
-        errors: "Email address is already registered.",
+        data,
+        errors: {
+          formErrors: [serviceErrors.Conflict],
+          fieldErrors: {},
+        },
       }
     }
 
@@ -72,7 +92,11 @@ export const signup = async (_formState: FormState, formData: FormData) => {
     }
 
     return {
-      errors: "Oops, something went wrong! Please try again later.",
+      data,
+      errors: {
+        formErrors: [serviceErrors.Unhandled],
+        fieldErrors: {},
+      },
     }
   }
 }

@@ -1,7 +1,10 @@
 import type { ZodError } from "zod"
 
-export const parseZodErrors = <T>(error: ZodError): T =>
+// Types
+import type { ValidationResultErrors } from "@ts/validation.types"
+
+export const parseZodErrors = <T>(error: ZodError): ValidationResultErrors<T> =>
   error.flatten((issue) => ({
     message: issue.message,
     code: issue.code,
-  })) as T
+  }))
