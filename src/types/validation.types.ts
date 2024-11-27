@@ -1,8 +1,7 @@
 import type { typeToFlattenedError } from "zod"
 
-export interface ZodErrorFields {
-  message: string
-  code: string
-}
+// Types
+import type { GenericError } from "./errors.types"
 
-export type ValidationError = typeToFlattenedError<unknown, ZodErrorFields>
+export type ValidationError = GenericError<string>
+export type ValidationResultErrors<T> = typeToFlattenedError<T, ValidationError>

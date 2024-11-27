@@ -4,7 +4,17 @@ import { Props } from "./types"
 // Styles
 import styles from "./InputField.module.css"
 
-export const InputField = ({ type, id, name, label, ...rest }: Props) => {
+// Components
+import { ErrorMessages } from "@components/forms"
+
+export const InputField = ({
+  type,
+  id,
+  name,
+  label,
+  errors,
+  ...rest
+}: Props) => {
   const isValidProps = id && name && label
 
   if (!isValidProps) return null
@@ -22,6 +32,8 @@ export const InputField = ({ type, id, name, label, ...rest }: Props) => {
         name={name}
         {...rest}
       />
+
+      <ErrorMessages errors={errors} />
     </div>
   )
 }

@@ -1,3 +1,5 @@
 import SignupForm from "./SignupForm/SignupForm"
+import { InputField } from "./Fields"
+import ErrorMessages from "./ErrorMessages/ErrorMessages"
 
-export { SignupForm }
+export { SignupForm, InputField, ErrorMessages }
