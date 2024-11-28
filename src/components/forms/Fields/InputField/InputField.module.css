@@ -1,0 +1,33 @@
+.wrapper {
+  margin-bottom: var(--spacing-default);
+  text-align: left;
+}
+
+.label {
+  display: block;
+  margin-bottom: var(--spacing-xSmall);
+  font-size: var(--copy-s-font-size);
+  color: var(--c-lGrey);
+}
+
+.input {
+  --input-height: 48px;
+
+  width: 100%;
+  height: var(--input-height);
+  padding-left: var(--spacing-small);
+  padding-right: var(--spacing-small);
+  border-radius: calc(var(--input-height) / 2);
+  font-size: 16px;
+  outline: none;
+  border: 1px solid var(--c-lGrey);
+  background: none;
+
+  &::placeholder {
+    color: var(--c-grey);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-small);
+  }
+}
