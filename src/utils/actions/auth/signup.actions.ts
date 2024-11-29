@@ -23,7 +23,10 @@ export interface FormState {
   errors?: SignupSchemaErrors
 }
 
-export const signup = async (_formState: FormState, formData: FormData) => {
+export const signupWithCredentials = async (
+  _formState: FormState,
+  formData: FormData
+) => {
   const data = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,

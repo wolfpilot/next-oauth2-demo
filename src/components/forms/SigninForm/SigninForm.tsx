@@ -9,7 +9,7 @@ import {
 } from "@constants/form.constants"
 
 // Utils
-import { signin as signinAction } from "@utils/actions/auth"
+import { signinWithCredentials } from "@utils/actions/auth"
 import { parseErrors } from "./helpers/error.helpers"
 
 // Styles
@@ -34,7 +34,7 @@ const INITIAL_STATE = {
 
 const SigninForm = () => {
   const [formState, formAction, pending] = useActionState(
-    signinAction,
+    signinWithCredentials,
     INITIAL_STATE
   )
 

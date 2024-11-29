@@ -9,7 +9,7 @@ import {
 } from "@constants/form.constants"
 
 // Utils
-import { signup as signupAction } from "@utils/actions/auth"
+import { signupWithCredentials } from "@utils/actions/auth"
 import { parseErrors } from "./helpers/error.helpers"
 
 // Styles
@@ -34,7 +34,7 @@ const INITIAL_STATE = {
 
 const SignupForm = () => {
   const [formState, formAction, pending] = useActionState(
-    signupAction,
+    signupWithCredentials,
     INITIAL_STATE
   )
 

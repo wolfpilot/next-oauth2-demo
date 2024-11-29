@@ -41,7 +41,10 @@ export const signinWithProvider = async (provider: OAuthProviderType) => {
   }
 }
 
-export const signin = async (_formState: FormState, formData: FormData) => {
+export const signinWithCredentials = async (
+  _formState: FormState,
+  formData: FormData
+) => {
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
