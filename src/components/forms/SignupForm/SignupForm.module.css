@@ -1,11 +1,7 @@
 .wrapper {
-  &:not(:last-child) {
-    margin-bottom: var(--spacing-large);
-  }
+  composes: form from "@styles/form.css";
 }
 
 .submitBtn {
-  &:not(:last-child) {
-    margin-bottom: var(--spacing-default);
-  }
+  composes: submitBtn from "@styles/form.css";
 }
