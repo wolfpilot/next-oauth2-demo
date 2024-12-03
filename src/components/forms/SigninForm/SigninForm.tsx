@@ -1,21 +1,19 @@
 "use client"
 
-import { redirect } from "next/navigation"
 import { useActionState } from "react"
 
 // Constants
-import { clientRoutes } from "@constants/clientRoutes.constants"
 import {
   FORM_STATUS_PENDING,
   FORM_STATUS_READY,
 } from "@constants/form.constants"
 
 // Utils
-import { signupWithCredentials } from "@utils/actions/auth"
+import { signinWithCredentials } from "@utils/actions/auth"
 import { parseErrors } from "./helpers/error.helpers"
 
 // Styles
-import styles from "./SignupForm.module.css"
+import styles from "./SigninForm.module.css"
 
 // Components
 import { InputField, ErrorMessages } from "@components/forms"
@@ -34,33 +32,18 @@ const INITIAL_STATE = {
   },
 }
 
-const SignupForm = () => {
+const SigninForm = () => {
   const [formState, formAction, pending] = useActionState(
-    signupWithCredentials,
+    signinWithCredentials,
     INITIAL_STATE
   )
 
-  // Check if the a new user ID has been created
-  if (formState.data.hasOwnProperty("id")) {
-    redirect(clientRoutes.signIn.url)
-  }
-
-  const { name, email, password } = formState?.data || {}
+  const { email, password } = formState?.data || {}
 
   const err = parseErrors(formState.errors)
 
   return (
     <form className={styles.wrapper} action={formAction}>
-      <InputField
-        id="name"
-        name="name"
-        label="Name"
-        placeholder="John Smith"
-        defaultValue={name}
-        required
-        errors={err.fieldErrors?.name}
-      />
-
       <InputField
         id="email"
         name="email"
@@ -96,4 +79,4 @@ const SignupForm = () => {
   )
 }
 
-export default SignupForm
+export default SigninForm

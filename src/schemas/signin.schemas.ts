@@ -3,15 +3,7 @@ import * as z from "zod"
 // Types
 import type { ValidationError } from "@ts/validation.types"
 
-export const signupSchema = z.object({
-  name: z
-    .string({
-      required_error: "Name is required.",
-    })
-    .trim()
-    .min(2, {
-      message: "Name must be at least 2 characters long.",
-    }),
+export const signinSchema = z.object({
   email: z
     .string({
       required_error: "Email is required.",
@@ -33,8 +25,8 @@ export const signupSchema = z.object({
     }),
 })
 
-export type SignupSchema = z.infer<typeof signupSchema>
-export type SignupSchemaErrors = z.inferFlattenedErrors<
-  typeof signupSchema,
+export type SigninSchema = z.infer<typeof signinSchema>
+export type SigninSchemaErrors = z.inferFlattenedErrors<
+  typeof signinSchema,
   ValidationError
 >

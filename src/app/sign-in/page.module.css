@@ -3,3 +3,7 @@
   flex-direction: column;
   row-gap: var(--spacing-small);
 }
+
+.footerNotes {
+  font-size: var(--copy-s-font-size);
+}

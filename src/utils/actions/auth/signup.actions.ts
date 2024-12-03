@@ -19,11 +19,14 @@ import { db } from "@lib/database.lib"
 import { parseZodErrors } from "@utils/helpers/form.helpers"
 
 export interface FormState {
-  data?: SignupSchema
+  data?: SignupSchema & { id?: string }
   errors?: SignupSchemaErrors
 }
 
-export const signup = async (_formState: FormState, formData: FormData) => {
+export const signupWithCredentials = async (
+  _formState: FormState,
+  formData: FormData
+) => {
   const data = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,

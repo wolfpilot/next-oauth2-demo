@@ -4,6 +4,7 @@ import type { GenericErrors } from "@ts/errors.types"
 export const SERVICE_ERROR_NAME = "ServiceError"
 
 export enum ServiceErrorCodes {
+  Unauthorized = "Unauthorized",
   NotFound = "NotFound",
   Conflict = "Conflict",
   Unhandled = "Unhandled",
@@ -12,6 +13,11 @@ export enum ServiceErrorCodes {
 export type ServiceErrors = GenericErrors<ServiceErrorCodes>
 
 export const serviceErrors: ServiceErrors = {
+  Unauthorized: {
+    code: ServiceErrorCodes.Unauthorized,
+    message:
+      "The authorization credentials provided for the request are invalid.",
+  },
   NotFound: {
     code: ServiceErrorCodes.NotFound,
     message:
