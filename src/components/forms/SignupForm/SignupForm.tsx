@@ -1,8 +1,10 @@
 "use client"
 
+import { redirect } from "next/navigation"
 import { useActionState } from "react"
 
 // Constants
+import { clientRoutes } from "@constants/clientRoutes.constants"
 import {
   FORM_STATUS_PENDING,
   FORM_STATUS_READY,
@@ -38,7 +40,13 @@ const SignupForm = () => {
     INITIAL_STATE
   )
 
+  // Check if the a new user ID has been created
+  if (formState.data.hasOwnProperty("id")) {
+    redirect(clientRoutes.signIn.url)
+  }
+
   const { name, email, password } = formState?.data || {}
+
   const err = parseErrors(formState.errors)
 
   return (
@@ -74,7 +82,12 @@ const SignupForm = () => {
         errors={err.fieldErrors?.password}
       />
 
-      <Button type="submit" variant="primary" disabled={pending}>
+      <Button
+        className={styles.submitBtn}
+        type="submit"
+        variant="primary"
+        disabled={pending}
+      >
         {pending ? FORM_STATUS_PENDING : FORM_STATUS_READY}
       </Button>
 

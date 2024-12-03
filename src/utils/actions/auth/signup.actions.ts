@@ -19,7 +19,7 @@ import { db } from "@lib/database.lib"
 import { parseZodErrors } from "@utils/helpers/form.helpers"
 
 export interface FormState {
-  data?: SignupSchema
+  data?: SignupSchema & { id?: string }
   errors?: SignupSchemaErrors
 }
 

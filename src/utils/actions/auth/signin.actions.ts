@@ -30,7 +30,7 @@ export const signinWithProvider = async (provider: OAuthProviderType) => {
   try {
     await signIn(provider, {
       redirect: true,
-      redirectTo: "/dashboard",
+      redirectTo: clientRoutes.dashboard.url,
     })
   } catch (error) {
     if (isRedirectError(error)) {

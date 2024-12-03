@@ -3,3 +3,9 @@
     margin-bottom: var(--spacing-large);
   }
 }
+
+.submitBtn {
+  &:not(:last-child) {
+    margin-bottom: var(--spacing-default);
+  }
+}

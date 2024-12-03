@@ -30,9 +30,10 @@ const RootLayout = async ({
   children: React.ReactNode
 }>) => {
   const session = await auth()
+  const sessionKey = new Date().getTime()
 
   return (
-    <AuthProvider session={session}>
+    <AuthProvider session={session} sessionKey={sessionKey}>
       <html lang="en">
         <body className={`${geistSans.variable}`}>
           <PageWrapper>{children}</PageWrapper>

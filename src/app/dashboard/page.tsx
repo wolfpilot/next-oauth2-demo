@@ -1,11 +1,11 @@
 "use client"
 
-import { redirect } from "next/navigation"
 import { useSession } from "next-auth/react"
+import { redirect } from "next/navigation"
 import Image from "next/image"
 
 // Constants
-import { apiRoutes } from "@constants/apiRoutes.constants"
+import { clientRoutes } from "@constants/clientRoutes.constants"
 
 // Styles
 import styles from "./page.module.css"
@@ -18,8 +18,8 @@ import { LogoutButton } from "@components/buttons"
 const DashboardPage = () => {
   const session = useSession()
 
-  if (!session?.data?.user) {
-    redirect(apiRoutes.signIn.url)
+  if (!session.data?.user) {
+    redirect(clientRoutes.signIn.url)
   }
 
   const { name, email, image } = session.data.user

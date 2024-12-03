@@ -81,7 +81,7 @@ const config: NextAuthConfig = {
     /**
      * Add an extra .credentials property to identify the current login method when issuing JWTs
      */
-    jwt: async ({ token, user, account }) => {
+    jwt: async ({ token, account }) => {
       if (account?.provider === "credentials") {
         token.credentials = true
       }
