@@ -39,12 +39,8 @@ jobs:
         uses: pnpm/action-setup@v4
       - name: Install dependencies
         run: pnpm install
-      # Can't find a way to run migrations in CI/CD without conflicting
-      # with existing tables or columns, even though locally Kysely simply
-      # skips any unnecessary migrations
-      #
-      # - name: Up migrations
-      #   run: pnpm run db:migrate
+      - name: Up migrations
+        run: pnpm run db:migrate
       - name: Run Vitest unit tests
         run: pnpm run test-unit
       - name: Install Playwright browsers
