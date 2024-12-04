@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@auth/kysely-adapter": "^1.7.3",
+    "bcryptjs": "^2.4.3",
     "dotenv-flow": "^4.1.0",
     "kysely": "^0.27.4",
     "next": "15.0.2",
@@ -28,10 +29,14 @@
     "pg": "^8.13.1",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
-    "sanitize.css": "^13.0.0"
+    "sanitize.css": "^13.0.0",
+    "ts-custom-error": "^3.3.1",
+    "uuid": "^11.0.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@playwright/test": "^1.48.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/pg": "^8.11.10",
     "@types/react": "^18",
@@ -51,5 +56,6 @@
     "typescript": "^5",
     "vite-tsconfig-paths": "^5.1.1",
     "vitest": "^2.1.4"
-  }
+  },
+  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387"
 }

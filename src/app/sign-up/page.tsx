@@ -12,11 +12,9 @@ import styles from "./page.module.css"
 // Components
 import Container from "@components/layout/Container/Container"
 import { ContentBlock } from "@components/layout/Content"
-import Divider from "@components/layout/Divider/Divider"
-import SsoLoginButton from "@components/buttons/SsoLoginButton/SsoLoginButton"
-import { SigninForm } from "@components/forms"
+import { SignupForm } from "@components/forms"
 
-const SignInPage = async () => {
+const SignUpPage = async () => {
   const session = await auth()
 
   if (session) {
@@ -27,22 +25,15 @@ const SignInPage = async () => {
     <Container>
       <ContentBlock>
         <header>
-          <h1>{clientRoutes.signIn.label}</h1>
+          <h1>{clientRoutes.signUp.label}</h1>
         </header>
 
-        <div className={styles.ssoLoginWrapper}>
-          <SsoLoginButton provider="github" />
-          <SsoLoginButton provider="google" />
-        </div>
-
-        <Divider text="or continue with credentials" />
-
-        <SigninForm />
+        <SignupForm />
 
         <footer>
           <p className={styles.footerNotes}>
-            Don&#39;t have an account? Register{" "}
-            <a href={`${clientRoutes.signUp.url}`}>here</a> first.
+            Already have an account? Log in{" "}
+            <a href={clientRoutes.signIn.url}>here</a> instead.
           </p>
         </footer>
       </ContentBlock>
@@ -50,4 +41,4 @@ const SignInPage = async () => {
   )
 }
 
-export default SignInPage
+export default SignUpPage

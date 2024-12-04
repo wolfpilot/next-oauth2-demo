@@ -1,0 +1,7 @@
+.wrapper {
+  composes: form from "@styles/form.css";
+}
+
+.submitBtn {
+  composes: submitBtn from "@styles/form.css";
+}

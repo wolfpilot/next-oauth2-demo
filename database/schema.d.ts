@@ -3,7 +3,7 @@ import { AdapterAccountType } from "next-auth/adapters";
 export type Account = {
   access_token: string | null;
   expires_at: number;
-  id: string;
+  id: Generated<string>;
   id_token: string | null;
   provider: string;
   providerAccountId: string;
@@ -17,7 +17,7 @@ export type Account = {
 
 export type Session = {
   expires: Date;
-  id: string;
+  id: Generated<string>;
   sessionToken: string;
   userId: string;
 }
@@ -25,9 +25,10 @@ export type Session = {
 export type User = {
   emailVerified: Date | null;
   email: string;
-  id: string;
+  id: Generated<string>;
   image: string | null;
   name: string | null;
+  password_hash: string;
 }
 
 export type VerificationToken = {

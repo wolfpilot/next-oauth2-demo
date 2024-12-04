@@ -1,0 +1,8 @@
+.wrapper {
+  list-style: none;
+}
+
+.item {
+  color: var(--c-error);
+  font-size: var(--copy-s-font-size);
+}

@@ -4,8 +4,10 @@
 
   /* Spacing */
   --spacing-default: 20px;
+  --spacing-xSmall: 5px;
   --spacing-small: 10px;
   --spacing-large: 40px;
+  --spacing-xLarge: 80px;
 
   /* Border */
   --border-radius-default: 10px;

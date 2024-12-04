@@ -12,6 +12,9 @@
   --c-accent-primary: hsl(248, 73%, 57%);
   --c-accent-primary-80: hsla(248, 73%, 57%, 80%);
 
+  --c-success: hsl(142, 52%, 50%);
+  --c-error: hsl(263 63% 69%);
+
   /* Theming */
   --c-page-bg: var(--c-lGrey);
   --c-content-bg: var(--c-white);

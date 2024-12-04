@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-default);
+  margin-bottom: var(--spacing-default);
+  color: var(--c-grey);
+  text-align: center;
+  font-size: var(--copy-s-font-size);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--c-grey);
+  }
+
+  &:not(:empty) {
+    &::before {
+      margin-right: var(--spacing-small);
+    }
+
+    &::after {
+      margin-left: var(--spacing-small);
+    }
+  }
+}
