@@ -1,3 +1,4 @@
-import { InputField } from "./InputField/InputField"
+import InputField from "./InputField/InputField"
+import PasswordInputField from "./InputField/PasswordInputField"
 
-export { InputField }
+export { InputField, PasswordInputField }

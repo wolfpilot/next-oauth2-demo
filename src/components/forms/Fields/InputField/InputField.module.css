@@ -1,4 +1,6 @@
 .wrapper {
+  --input-height: 48px;
+
   margin-bottom: var(--spacing-default);
   text-align: left;
 }
@@ -11,8 +13,6 @@
 }
 
 .input {
-  --input-height: 48px;
-
   width: 100%;
   height: var(--input-height);
   padding-left: var(--spacing-small);
@@ -26,8 +26,41 @@
   &::placeholder {
     color: var(--c-grey);
   }
+}
+
+.inputPassword {
+  padding-right: var(--input-height);
+}
+
+.inputWrapper {
+  position: relative;
 
   &:not(:last-child) {
     margin-bottom: var(--spacing-small);
   }
+}
+
+.btnPassword {
+  position: absolute;
+  width: var(--input-height);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: none;
+  outline: none;
+  border: none;
+  color: var(--c-grey);
+  border-top-right-radius: calc(var(--input-height) / 2);
+  border-bottom-right-radius: calc(var(--input-height) / 2);
+  font-size: var(--heading-s-font-size);
+
+  &:hover,
+  &:focus-within {
+    box-shadow: 0px 0px 5px var(--c-lGrey);
+    border: 1px solid var(--c-white);
+  }
+}
+
+.btnPasswordIsShown {
+  color: var(--c-white);
 }

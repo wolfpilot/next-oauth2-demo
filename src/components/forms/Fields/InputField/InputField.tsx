@@ -1,3 +1,5 @@
+"use client"
+
 // Types
 import { Props } from "./types"
 
@@ -7,14 +9,7 @@ import styles from "./InputField.module.css"
 // Components
 import { ErrorMessages } from "@components/forms"
 
-export const InputField = ({
-  type,
-  id,
-  name,
-  label,
-  errors,
-  ...rest
-}: Props) => {
+const InputField = ({ id, name, label, errors, ...rest }: Props) => {
   const isValidProps = id && name && label
 
   if (!isValidProps) return null
@@ -25,15 +20,11 @@ export const InputField = ({
         {label}
       </label>
 
-      <input
-        className={styles.input}
-        type={type}
-        id={id || name}
-        name={name}
-        {...rest}
-      />
+      <input className={styles.input} id={id || name} name={name} {...rest} />
 
       <ErrorMessages errors={errors} />
     </div>
   )
 }
+
+export default InputField

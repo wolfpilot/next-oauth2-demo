@@ -18,7 +18,11 @@ import { parseErrors } from "./helpers/error.helpers"
 import styles from "./SignupForm.module.css"
 
 // Components
-import { InputField, ErrorMessages } from "@components/forms"
+import {
+  InputField,
+  PasswordInputField,
+  ErrorMessages,
+} from "@components/forms"
 import { Button } from "@components/buttons"
 
 // Setup
@@ -62,6 +66,7 @@ const SignupForm = () => {
       />
 
       <InputField
+        type="email"
         id="email"
         name="email"
         label="E-mail"
@@ -71,11 +76,12 @@ const SignupForm = () => {
         errors={err.fieldErrors?.email}
       />
 
-      <InputField
+      <PasswordInputField
+        type="password"
         id="password"
         name="password"
         label="Password"
-        placeholder="********"
+        placeholder="••••••••"
         defaultValue={password}
         required
         autoComplete="off"
