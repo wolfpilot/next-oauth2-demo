@@ -27,6 +27,7 @@ export type User = {
   email: string;
   id: Generated<string>;
   image: string | null;
+  color_hex: string | null;
   name: string | null;
   password_hash: string;
 }
