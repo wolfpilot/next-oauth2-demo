@@ -22,7 +22,7 @@ const DashboardPage = () => {
     redirect(clientRoutes.signIn.url)
   }
 
-  const { name, email, image } = session.data.user
+  const { name, email, image, color_hex } = session.data.user
 
   return (
     <Container>
@@ -32,16 +32,27 @@ const DashboardPage = () => {
         </header>
 
         <div className={styles.user}>
-          {image && (
-            <Image
-              className={styles.avatar}
-              src={image}
-              alt={`${name}'s profile photo.`}
-              width={128}
-              height={128}
-              data-testid="avatar"
-            />
-          )}
+          <div className={styles.avatar}>
+            {image && (
+              <Image
+                className={styles.avatarImage}
+                src={image}
+                alt={`${name}'s profile photo.`}
+                width={128}
+                height={128}
+                data-testid="avatar"
+              />
+            )}
+
+            {name && color_hex && (
+              <div
+                className={styles.avatarText}
+                style={{ backgroundColor: color_hex }}
+              >
+                {name[0]}
+              </div>
+            )}
+          </div>
 
           {name && <h2 data-testid="name">{name}</h2>}
           <p data-testid="email">{email}</p>

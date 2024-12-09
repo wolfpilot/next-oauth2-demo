@@ -11,12 +11,14 @@ import {
 
 // Constants
 import { serviceErrors } from "@constants/errors.constants"
+import { colors } from "@constants/colors.constants"
 
 // Lib
 import { db } from "@lib/database.lib"
 
 // Utils
 import { parseZodErrors } from "@utils/helpers/form.helpers"
+import { generateRandomNumberInRange } from "@utils/helpers/math.helpers"
 
 export interface FormState {
   data?: SignupSchema & { id?: string }
@@ -72,6 +74,9 @@ export const signupWithCredentials = async (
     }
 
     const hashedPassword = await bcrypt.hash(data.password, 10)
+    const colorIndex = Math.floor(
+      generateRandomNumberInRange(0, colors.avatar.length)
+    )
 
     const insertUserQuery = await db
       .insertInto("User")
@@ -79,6 +84,7 @@ export const signupWithCredentials = async (
         name: data.name,
         email: data.email,
         password_hash: hashedPassword,
+        color_hex: colors.avatar[colorIndex],
       })
       .returning("id")
       .executeTakeFirstOrThrow()
