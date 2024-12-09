@@ -1,8 +1,23 @@
 .user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: var(--spacing-default);
 }
 
 .avatar {
   margin-bottom: var(--spacing-default);
   border-radius: 50%;
+  overflow: clip;
+}
+
+.avatarText {
+  --avatar-size: 128px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  font-size: var(--heading-m-font-size);
 }
