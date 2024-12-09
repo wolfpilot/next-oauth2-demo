@@ -6,8 +6,16 @@ export const apiRoutes: Routes = {
     label: "Authentication",
     url: "/api/auth",
   },
-  signIn: {
+  authSignIn: {
     label: "Sign In",
     url: "/api/auth/signin",
+  },
+  sessions: {
+    label: "Sessions",
+    url: "/api/sessions",
+  },
+  sessionsClear: {
+    label: "Sessions",
+    url: "/api/sessions/clear",
   },
 }
