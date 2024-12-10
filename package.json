@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "next-sso-oauth2",
+  "name": "ouath2-sso-dashboard",
   "version": "0.1.0",
   "private": true,
   "scripts": {
