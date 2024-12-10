@@ -64,7 +64,7 @@ Ok, the cake is a lie. There is however some of your own data that displays when
   - Github Actions workflow
   - Restricted master branch merge only on pipeline pass
 
-![screenshot](./docs/images/auth-validation.jpg)
+<img src="./docs/images/auth-validation.jpg" alt="Form validation" width="480"/>
 
 ## Features (TBA)
 
