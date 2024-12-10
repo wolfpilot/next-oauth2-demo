@@ -1,3 +1,5 @@
+name: wolfpilot-oauth2-sso-dashboard
+
 services:
   database:
     image: postgres:latest
@@ -13,7 +15,7 @@ services:
     ports:
       - "6543:5432"
 
-  gui:
+  database_gui:
     image: elestio/pgadmin:latest
     container_name: pgadmin
     restart: unless-stopped
